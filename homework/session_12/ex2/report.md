@@ -79,7 +79,7 @@ jobs:
 
 ---
 
-## 4. Hướng dẫn kiểm tra và chụp ảnh minh chứng
+## 4. Hướng dẫn kiểm tra và quy trình thực hiện
 
 ### Bước 1: Gán Git Tag và đẩy lên GitHub
 Thực thi lệnh trong terminal tại thư mục dự án:
@@ -91,12 +91,33 @@ git push origin v1.0.0
 ### Bước 2: Kiểm tra tab Actions
 1. Truy cập repository trên GitHub: `https://github.com/ptitvn/IT-209-Devops-session12-bai2`
 2. Chọn tab **Actions**.
-3. Sẽ thấy workflow **Release Docker Image** kích hoạt với commit tag `v1.0.0` và trạng thái chuyển sang màu xanh lá (**Success**).
+3. Workflow **Release Docker Image** kích hoạt với commit tag `v1.0.0` và trạng thái chuyển sang màu xanh lá (**Success**).
 
-### Bước 3: Kiểm tra GitHub Packages và chụp ảnh
+### Bước 3: Kiểm tra GitHub Packages
 1. Tại trang chính của repository (tab **Code**), nhìn sang cột bên phải mục **Packages** (hoặc truy cập trực tiếp mục Packages của tài khoản/tổ chức).
-2. Nhấn vào package vừa được đẩy lên, bạn sẽ thấy thông tin package với tag `v1.0.0`.
-3. Chụp ảnh màn hình:
-   - **Ảnh 1:** Trang chi tiết gói Docker Image trên GitHub Packages thể hiện rõ tag `v1.0.0` và câu lệnh `docker pull ghcr.io/...:v1.0.0`.
-   - **Ảnh 2:** Chi tiết run của workflow `Release Docker Image` trong tab Actions thành công.
-4. Lưu các ảnh chụp vào thư mục `homework/session_12/ex2/`.
+2. Nhấn vào package vừa được đẩy lên, kiểm tra thông tin package với tag `v1.0.0`.
+
+---
+
+## 5. Kết quả thực thi thực tế (Ảnh chụp màn hình minh chứng)
+
+### 5.1. Minh chứng gói Docker Image phát hành trên GitHub Packages
+Gói Docker Image `it-209-devops-session12-bai2` với thẻ phiên bản `v1.0.0` và lệnh kéo image tương ứng `docker pull ghcr.io/ptitvn/it-209-devops-session12-bai2:v1.0.0`:
+
+![GitHub Packages v1.0.0](packages-v1.0.0.png)
+
+### 5.2. Minh chứng Workflow `Release Docker Image` thực thi thành công
+Toàn bộ các bước đóng gói và đẩy image lên GitHub Container Registry đều hoàn thành với trạng thái Success:
+
+![Workflow Run Success](workflow-run-success.png)
+
+### 5.3. Tổng quan danh sách Workflow Runs trên tab Actions
+Workflow `Release Docker Image` kích hoạt tương ứng với sự kiện push tag `v1.0.0`:
+
+![Actions Overview](actions-overview.png)
+
+### 5.4. Giao diện Repository hiển thị liên kết Packages
+Mục Packages bên cột phải của Repository đã liên kết thành công với Docker Image:
+
+![Repo Packages Sidebar](repo-packages-sidebar.png)
+
