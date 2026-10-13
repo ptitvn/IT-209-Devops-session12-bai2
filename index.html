@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Session 12 - Bài 2 | Automated Docker Release</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border: rgba(148, 163, 184, 0.15);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --success: #34d399;
+      --glow: rgba(56, 189, 248, 0.25);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-image: 
+        radial-gradient(at 20% 20%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(52, 211, 153, 0.15) 0px, transparent 50%);
+    }
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 650px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 50px var(--glow);
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .features li span.icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .command-box {
+      background: #090d16;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.875rem;
+      color: var(--accent);
+      word-break: break-all;
+    }
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🚀 Release Production Ready</div>
+    <h1>Tự Động Hóa Phát Hành Docker Image</h1>
+    <p>Hệ thống Continuous Delivery (CD) tự động đóng gói và xuất bản Docker Image lên GitHub Container Registry (GHCR) khi có Git Tag dạng <code>v*.*.*</code>.</p>
+    
+    <ul class="features">
+      <li><span class="icon">✓</span> <strong>Trigger:</strong> Tự động kích hoạt khi gắn tag <code>v*.*.*</code></li>
+      <li><span class="icon">✓</span> <strong>Registry:</strong> GitHub Container Registry (ghcr.io)</li>
+      <li><span class="icon">✓</span> <strong>Metadata:</strong> Tự động đồng bộ tag từ Git qua <code>docker/metadata-action@v5</code></li>
+      <li><span class="icon">✓</span> <strong>Build & Push:</strong> Đóng gói tối ưu với <code>docker/build-push-action@v5</code></li>
+    </ul>
+
+    <div class="command-box">
+      docker pull ghcr.io/ptitvn/it-209-devops-session12-bai2:v1.0.0
+    </div>
+  </div>
+  <footer>IT-209 DevOps Course &bull; Session 12 &bull; Bài 2</footer>
+</body>
+</html>
